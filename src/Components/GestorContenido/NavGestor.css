@@ -1,0 +1,25 @@
+:root{
+  --font: "Roboto"
+}
+
+.nav-gestor{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7vh;
+  background-color: #3f49c7;
+  font-family: var(--font);
+  color: white;
+  font-weight: 600;
+}
+
+.list__nav__gestor{
+  list-style: none;
+}
+
+.li__gestor{
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}

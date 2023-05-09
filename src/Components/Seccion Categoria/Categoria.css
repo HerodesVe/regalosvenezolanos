@@ -1,0 +1,248 @@
+.categoria__main__container{
+  width: 100%;
+  height: auto;
+}
+
+.categoria__filter__products__container{
+  display: grid;
+  grid-template-columns: 20% 80%;
+  height: 60%;
+}
+
+.categorias{
+  margin-top: 1rem ;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.labels__filter{
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.9rem 0.5rem;
+  font-family: "Roboto";
+  font-weight: 300;
+}
+
+.categoria__products{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+  margin-top: 1rem;
+  height: 100%;
+}
+
+.filter__container{
+  height: 100%;
+}
+
+.input__container__products{
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.input__category{
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  width: 70%;
+  border: thin solid black;
+  border-radius: 18px;
+}
+
+.products{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 30px;
+}
+
+.filtered__categorias{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-left: 1rem;
+  font-family: "Roboto";
+  margin-bottom: 30px;
+}
+
+.filtered__categorias__title{
+  font-family: "Roboto";
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.labels__filter:active{
+  color: white;
+}
+
+.button__categoria{
+  padding: 0.3rem 1rem;
+}
+
+.container__buttons__categoria{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.title__filter__category{
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+  font-size: 1.2rem;
+}
+
+.festividad,
+.productos__filter__tags{
+  padding: 0.8rem;
+}
+
+.festy{
+  margin-right: 0.4rem;
+}
+
+.all-products{
+  cursor: pointer;
+}
+
+
+.arrow__products {
+  transform: rotate(0deg);
+  transition: transform 0.6s ease-in-out;
+}
+
+.arrow__products.isOpen {
+  transform: rotate(270deg);
+  transition: transform 0.6s ease-in-out;
+}
+
+.filter__icon__responsive{
+  display: none;
+  cursor: pointer;
+}
+
+.icon__close__filter{
+  display: none;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 1250px){
+  .products{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    grid-gap: 15px;
+  }
+}
+
+
+@media screen and (max-width: 1050px){
+
+  .icon__close__filter{
+    display: block;
+  }
+
+  .filter__icon__responsive{
+    display: inline;
+  }
+
+  .products{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    grid-gap: 15px;
+  }
+
+  .categoria__filter__products__container{
+    display: grid;
+    grid-template-columns: 100%;
+  }
+
+  .input__container__products{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+  }
+
+  .input__category{
+    padding: 0.7rem 1.7rem;
+    font-size: 1.2rem;
+    width: 95%;
+    border: thin solid black;
+    border-radius: 18px;
+  }
+
+  .filter__container{
+    background-color: white;
+    height: auto;
+    width: 100%;
+  }
+
+  .categorias{
+    display: flex;
+    align-items: center;
+  }
+
+  .filtered__categorias{
+    flex-direction: row;
+    justify-content: center;
+
+  }
+
+ 
+}
+
+@media screen and (max-width: 740px){
+  .products{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    grid-gap: 30px;
+  }
+
+  .categoria__filter__products__container{
+    display: grid;
+    grid-template-columns: 100%;
+  }
+
+  .input__container__products{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+  }
+
+  .input__category{
+    padding: 0.7rem 1.7rem;
+    font-size: 1.2rem;
+    width: 95%;
+    border: thin solid black;
+    border-radius: 18px;
+  }
+
+  .filter__container{
+    background-color: white;
+    height: auto;
+    width: 100%;
+  }
+
+  .categorias{
+    display: flex;
+    align-items: center;
+  }
+
+  .filtered__categorias{
+    flex-direction: row;
+    justify-content: center;
+
+  }
+
+ 
+}

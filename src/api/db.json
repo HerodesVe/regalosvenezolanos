@@ -1,0 +1,230 @@
+{
+  "tendentsProducts": [
+    {
+      "id": 1,
+      "name": "Desayuno Día de las Madres",
+      "imgRoute": "../assets/item-1.jpg",
+      "etiqueta": "Desayunos",
+      "price": 15,
+      "quantity": 0
+    },
+    {
+      "id": 2,
+      "name": "Cuadro Día de las Madres",
+      "imgRoute": "../assets/item-1.jpg",
+      "etiqueta": "Cuadros",
+      "price": 5,
+      "quantity": 0
+    },
+    {
+      "id": 3,
+      "name": "Desayuno",
+      "imgRoute": "../assets/item-1.jpg",
+      "etiqueta": "Cuadros",
+      "price": 6.5,
+      "quantity": 0
+    },
+    {
+      "id": 4,
+      "name": "Cuadro Día de las Madres",
+      "imgRoute": "../assets/item-1.jpg",
+      "etiqueta": "Cuadros",
+      "price": 15,
+      "quantity": 0
+    },
+    {
+      "id": 5,
+      "name": "Desayuno Día de las Madres",
+      "imgRoute": "../assets/item-1.jpg",
+      "etiqueta": "Desayunos",
+      "price": 17,
+      "quantity": 0
+    },
+    {
+      "id": 6,
+      "name": "Desayuno Día de las Madres",
+      "imgRoute": "../assets/item-1.jpg",
+      "etiqueta": "Desayunos",
+      "price": 12,
+      "quantity": 0
+    }
+  ],
+  "allProducts": [
+    {
+      "id": 2,
+      "name": "Cuadro Día de las Madres",
+      "imgRoute": "../assets/item-1.jpg",
+      "etiqueta": "Tazas",
+      "price": 5,
+      "quantity": 0,
+      "day": "Dia de las Madres"
+    },
+    {
+      "id": 4,
+      "name": "Cuadro Día de las Madres",
+      "imgRoute": "../assets/item-1.jpg",
+      "etiqueta": "Cuadros",
+      "price": 15,
+      "quantity": 0,
+      "day": "Dia de los Padres"
+    },
+    {
+      "id": 5,
+      "name": "Topping Torta",
+      "imgRoute": "../assets/item-1.jpg",
+      "etiqueta": "Toppings",
+      "price": 17,
+      "quantity": 0,
+      "day": "Dia de los Padres"
+    },
+    {
+      "id": 6,
+      "name": "Globos día de la Madre",
+      "imgRoute": "../assets/item-1.jpg",
+      "etiqueta": "Globos",
+      "price": 12,
+      "quantity": 0,
+      "day": "Dia de los Padres"
+    },
+    {
+      "id": 7,
+      "name": "Cuadro Día de las Madres",
+      "imgRoute": "../assets/item-1.jpg",
+      "etiqueta": "Tazas",
+      "price": 15,
+      "quantity": 0,
+      "day": "Dia de los Padres"
+    },
+    {
+      "id": 8,
+      "name": "Topping Torta",
+      "imgRoute": "../assets/item-1.jpg",
+      "etiqueta": "Toppings",
+      "price": 17,
+      "quantity": 0,
+      "day": "Dia de los Padres"
+    },
+    {
+      "id": 9,
+      "name": "Globos día de la Madre",
+      "imgRoute": "../assets/item-1.jpg",
+      "etiqueta": "Globos",
+      "price": 12,
+      "quantity": 0,
+      "day": "Dia de los Padres"
+    },
+    {
+      "id": 10,
+      "name": "Mystery Box",
+      "imgRoute": "",
+      "etiqueta": "Cajas",
+      "price": "2",
+      "quantity": 0,
+      "day": "Dia de los Padres"
+    },
+    {
+      "id": 12,
+      "name": "Hector Ulacio",
+      "imgRoute": "",
+      "etiqueta": "Cuadro",
+      "price": "1",
+      "quantity": 0,
+      "day": "Dia de los Padres"
+    },
+    {
+      "id": 3,
+      "name": "Herodes",
+      "imgRoute": "",
+      "etiqueta": "Cuadro",
+      "price": "1",
+      "quantity": 0,
+      "day": "Dia de las Madres"
+    },
+    {
+      "id": 1682169501573,
+      "name": "Topper",
+      "imgRoute": "",
+      "etiqueta": "Cuadro",
+      "price": "1",
+      "quantity": 0,
+      "day": "San Valentín"
+    },
+    {
+      "id": 1682255557983,
+      "name": "Caja de Desayuno",
+      "imgRoute": "",
+      "etiqueta": "Cuadro",
+      "price": "1",
+      "quantity": 0,
+      "day": "Dia de los Padres"
+    },
+    {
+      "id": 1682257146049,
+      "name": "Desayuno Especial",
+      "imgRoute": "",
+      "etiqueta": "Cuadro",
+      "price": "1",
+      "quantity": 0,
+      "day": "Cumpleaños"
+    },
+    {
+      "id": 1682361556791,
+      "name": "Globo Día de los Padres",
+      "imgRoute": "",
+      "etiqueta": "Globos",
+      "price": "5",
+      "quantity": 0,
+      "day": "Dia de los Padres"
+    },
+    {
+      "id": 1682874226247,
+      "name": "Cuadro Personalizado",
+      "imgRoute": "",
+      "etiqueta": "Cuadro",
+      "price": "5",
+      "quantity": 0,
+      "day": "Dia de los Padres"
+    },
+    {
+      "id": 1683044801832,
+      "name": "Taza Día de los Padres",
+      "imgRoute": "",
+      "etiqueta": "Tazas",
+      "price": "15",
+      "quantity": 0,
+      "day": "Cumpleaños"
+    }
+  ],
+  "trends": [
+    {
+      "id": 11
+    },
+    {
+      "id": 1
+    },
+    {
+      "id": 1682255557983
+    },
+    {
+      "id": 1683044801832
+    },
+    {
+      "id": 1682874226247
+    },
+    {
+      "id": 1682257146049
+    },
+    {
+      "id": 1683079582440
+    },
+    {
+      "id": 10
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 8
+    }
+  ]
+}

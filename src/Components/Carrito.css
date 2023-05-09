@@ -1,0 +1,251 @@
+.carrito__popup{
+  position: fixed;
+  top: 12vh;
+  right: 0;
+  height: 100vh;
+  width: 100%;
+  background: white;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+  z-index: 999994;
+  font-family: "Roboto";
+}
+
+.carrito__popup.visible {
+transform: translateX(0);
+}
+
+.logo__carrito__content{
+width: 200px;
+}
+
+.header__carrito__container{
+  padding: 0 1rem 0 0;
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container__products__carrito{
+  width: 100%;
+  height: 75%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.personalization__container{
+  background-color: #eeece8;
+}
+
+.product__carrito__container{
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 0 2rem;
+}
+
+.carrito__container{
+  display: grid;
+  grid-template-columns: 70% 30%;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.card__container__carrito{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 20% 40% 35% 5%;
+  margin: 1rem 0;
+}
+
+.header__titles__carrito__card{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.close__icon__carrito__card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.main__title__carrito{
+  padding: 0 0.5rem;
+  font-weight: 400;
+}
+
+.product__code{
+  font-weight: 300;
+}
+
+.img__card__carrito img{
+  max-width: 100%;
+}
+
+.contaniner__price__card__carrito{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.price__carrito__dolar{
+  font-weight: 400;
+}
+
+.price__carrito__bolivares{
+  font-weight: 400;
+}
+
+.products__carrito__title{
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.details__carrito__title{
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.back-to-shop-button{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: none;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 1rem 0;
+}
+
+
+/* FORM */
+
+.form__carrito{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.inputs__carrito__container{
+  display: flex;
+  justify-content: center;
+}
+
+.input__carrito{
+  border: none;
+  background: none;
+  border-bottom: thin black solid;
+  width: 45%;
+  margin-bottom: 1rem;
+}
+
+.name-input{
+  margin-right: 10px;
+}
+
+.textarea__carrito{
+  width: 93%;
+  font-family: "Roboto";
+  font-size: 0.9rem;
+  padding: 0.4rem;
+  margin-bottom: 1.5rem;
+  background: none;
+  resize: none;
+}
+
+.total__price___carrito{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.total__carrito{
+  display: flex;
+  align-items: center;
+}
+
+.total__carrito__precio{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.total__carrito__precio p:nth-child(2){
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.total__carrito__precio p:first-child{
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.submit__carrito{
+  border: none;
+  background-color: #3f49c7;
+  color: white;
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.7rem 0;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 770px){
+  .carrito__container{
+    grid-template-columns: 57% 43%;
+    padding: 1rem 0;
+  }
+
+  .product__carrito__container{
+    padding: 0 0 0 1rem;
+  }
+
+  .product__code{
+    font-size: 0.8rem;
+  }
+
+  .main__title__carrito{
+    font-size: 1rem;
+  }
+
+  .price__carrito__bolivares, 
+  .price__carrito__dolar{
+    font-size: 0.9rem;
+  }
+
+  .card__container__carrito{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 20% 50% 25% 5%;
+    margin: 1rem 0;
+  }
+}
+
+@media screen and (max-width: 570px){
+  .carrito__container{
+    grid-template-columns: 100%;
+    padding: 1rem 0;
+  }
+
+  .total__price___carrito{
+    margin-bottom: 2rem;
+  }
+}
