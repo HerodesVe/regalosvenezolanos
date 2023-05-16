@@ -68,7 +68,7 @@ function ProductTable({openModal, search, valueSearch, openModalAdd}) {
           </tr>
         </thead>
         <tbody>
-          {db.length > 0 && filteredProducs().map((product,index) => <TableRow openModalAdd={openModalAdd} openModal={openModal} key={index} product={product}/>)}
+          {db.length > 0 ? filteredProducs().map((product,index) => <TableRow openModalAdd={openModalAdd} openModal={openModal} key={index} product={product}/>) : "Error 504: Error del servidor al cargar los productos" }
         </tbody>
       </table >
       </div>

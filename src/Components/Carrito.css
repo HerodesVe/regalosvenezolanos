@@ -209,12 +209,18 @@ width: 200px;
 
 
 @media screen and (max-width: 770px){
+  .carrito__popup{
+    top: 0vh;
+  }
+
+
   .carrito__container{
     grid-template-columns: 57% 43%;
     padding: 1rem 0;
   }
 
   .product__carrito__container{
+    display: flex;
     padding: 0 0 0 1rem;
   }
 

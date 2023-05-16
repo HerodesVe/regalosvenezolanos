@@ -7,11 +7,11 @@ import { CarritoProvider } from './context/CarritoContext';
 import ContactoHome from './Components/ContactoHome';
 import Categoria from './Components/Seccion Categoria/Categoria';
 import GestorHome from './Components/GestorContenido/GestorHome';
-import { ProductsProvider } from './context/ProductsContext';
 import { GestorProvider } from './context/GestorContext';
 import CarritoCompras from './Components/Carrito';
 import { useState } from 'react';
 import Carrito from '@mui/icons-material/ShoppingCartOutlined';
+import { FilterProvider } from './context/FilterContext';
 
 
 function App() {
@@ -24,8 +24,8 @@ function App() {
   return (
     <div className="App">
       <GestorProvider> 
-      <ProductsProvider>
       <CarritoProvider>
+      <FilterProvider>
         <BrowserRouter>
           <Routes>
             <Route
@@ -43,7 +43,7 @@ function App() {
                   <Footer />
                 </>
               }
-            />
+              />
             <Route
               path="/categorias"
               element={
@@ -53,22 +53,22 @@ function App() {
                   <Footer />
                 </>
               }
-            />
+              />
             <Route
-              path="/contacto"
+              path="/#contacto"
               element={
                 <>
                   <NavBar />
-                  <ContactoHome />
+                  <Home />
                   <Footer />
                 </>
               }
-            />
+              />
               <Route path="/admin/*" element={<GestorHome />} />
           </Routes>
         </BrowserRouter>
+      </FilterProvider>
       </CarritoProvider>
-      </ProductsProvider>
       </GestorProvider>
     </div>
   );

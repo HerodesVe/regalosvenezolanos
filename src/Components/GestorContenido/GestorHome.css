@@ -2,7 +2,6 @@
   --font: "Roboto"
 }
 
-
 .gestor__home{
   width: 100%;
   height: 90vh;
@@ -17,7 +16,6 @@
   height: 100%;
   width: 100%;
 }
-
 
 table,th,td{
   border-bottom: thin solid black;
@@ -174,7 +172,7 @@ thead {
 .form__product__gestor{
   display: grid;
   grid-template-columns: 40% 60%;
-  height: 70%;
+  height: auto;
 }
 
 form input{
@@ -188,7 +186,50 @@ form input{
 }
 
 .container__input__products{
+  display: flex;
+  justify-content: space-between;
+}
+
+.container__input__products input{
+  width: 45%;
+}
+
+.push__image__form__gestor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
   width: 100%;
+  background-color: #c0a65a;
+}
+
+.load__image__gestor__form{
+  padding-right: 1rem;
+  color: white;
+}
+
+.info__details__products__gestor,
+.info__basic__gestor{
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.checkbox__container__gestor{
   display: flex;
   justify-content: space-around;
+  width: 50%;
 }
+
+.textarea-gestor{
+  resize: none;
+  width: 70%;
+  height: 70px;
+  font-family: "Roboto";
+  font-size: 0.9rem;
+  padding: 0.4rem 1rem;
+}
+
+.title__info__gestor{
+  margin-bottom: 0.5rem;
+}
+

@@ -23,7 +23,6 @@
 .modal-container{
     padding: 1rem 1rem;
     position: relative;
-    width: 80%;
     height: auto;
     border: 2px white solid;
     background-color: aliceblue;
@@ -166,54 +165,20 @@
     }
   }
 
-  @media screen and (max-width: 900px){
 
-    .button__modal{
-        padding: 0.7rem 2rem;
-        font-size: 0.8rem;
-    }
-    
-    .price__product__modal{
-        font-size: 0.9rem;
-    }
+  @media screen and (max-width: 930px){
 
-    .modal__product__title h4{
-        font-size: 1.1rem;
-    }
-    
-    .modal__label{
-        font-size: 0.6rem;  
-    }
-    
-    .description__product__title{
-        font-size: 0.8rem;
-    }
 
-    .description__product__text{
-      font-size: 0.7rem;
-    }
 
-    .product__details__row{
-        font-size: 0.6rem;
-    }
-  }
-
-  @media screen and (max-width: 750px){
     .modal__label{
         display: none; 
     }
 
     .modal__product__title h4{
         margin-bottom: 1rem;
+        margin-top: 1rem;
+        font-weight: 300;
         text-align: center;
-    }
-
-    .description__product__text{
-        font-size: 0.6rem;
-      }
-  
-    .product__details__row{
-        font-size: 0.6rem;
     }
 
     .modal__card{

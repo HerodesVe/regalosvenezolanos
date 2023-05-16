@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react"
 import CardProducto from "./CardProducto"
 import ModalProduct from "./ModalProduct"
 import { Link } from "react-router-dom"
-import {helpHttp} from "../helpers/helpHttp"
 import GestorContext from "../context/GestorContext"
 
 
@@ -30,7 +29,7 @@ const ProductHome = () => {
     <div className="card__container__home">
       <h2 className="title__products__trends">Productos Destacados</h2>
       <div className="card__container__home2">
-        {filteredProducts.length > 0 && filteredProducts.map((el) => <CardProducto handleCardClick={handleCardClick} key={el.id} el={el}/>)}
+        {filteredProducts.length > 0 ? filteredProducts.map((el) => <CardProducto handleCardClick={handleCardClick} key={el.id} el={el}/>) : <h2>Error al Cargar los productos</h2>}
       </div>
       {showModal && selectedProduct && (
         <ModalProduct

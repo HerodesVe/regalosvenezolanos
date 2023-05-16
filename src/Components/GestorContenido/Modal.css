@@ -34,3 +34,21 @@
   cursor: pointer;
 }
 
+
+@media screen and (max-width: 930px){
+  .modal-container{
+    padding: 1rem 1rem;
+    width: 70%;
+  
+  }
+}
+
+
+@media screen and (max-width: 570px){
+  .modal-container{
+    padding: 1rem 1rem;
+    width: 95%;
+  
+  }
+}
+

@@ -1,26 +1,27 @@
-import { useEffect, useRef, useState } from "react";
-import { helpHttp } from "../../helpers/helpHttp";
+import { useContext, useEffect, useRef, useState } from "react";
 import "./Categoria.css"
 import TodayIcon from '@mui/icons-material/Today';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ClearIcon from '@mui/icons-material/Clear';
+import FilterContext from "../../context/FilterContext";
+import GestorContext from "../../context/GestorContext";
 
 function Filter(props) {
   const [dataProducts, setDataProducts] = useState([]);
   const [dayProducts, setDayProducts] = useState([]);
-  const [activeButton, setActiveButton] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
+  const {handleFilterTag, handleFilterDay, activeButton} = useContext(FilterContext)
+  
+  const data = useContext(GestorContext)
+  const {db} = data
 
   const handleOpen = () => {
     setIsOpen(!isOpen)
   }
 
-  const URL = "http://localhost:5000/allProducts";
-
   useEffect(() =>{
-    helpHttp().get(URL)
-        .then((data) => {
+          let data = db
           const productsByTag = data.reduce((acc, product) => {
             const tag = product.etiqueta;
             if (acc[tag]) {
@@ -44,31 +45,10 @@ function Filter(props) {
           }, {});
 
           setDayProducts(Object.entries(productsByDay));
-        })
+        
 
-  },[URL])
+  },[db])
 
-
-
-  const handleFilterClick = (tag) => {
-    if (activeButton === tag) {
-      props.handleFilterClick(false, false); // Pasa null y false al componente padre
-      setActiveButton(null);
-    } else {
-      props.handleFilterClick(tag, false); // Pasa la etiqueta y true al componente padre
-      setActiveButton(tag);
-    }
-  };
-
-  const handleFilterDay = (day) => {
-    if (activeButton === day) {
-      props.handleFilterClick(false, false); // Pasa null y false al componente padre
-      setActiveButton(null);
-    } else {
-      props.handleFilterClick(false, day); // Pasa la etiqueta y true al componente padre
-      setActiveButton(day);
-    }
-  }
 
   return (
     <div className="filter__container">
@@ -82,7 +62,7 @@ function Filter(props) {
             <h3 className="title__filter__category"><TodayIcon className="festy"/> Festividad</h3>
             {dayProducts.length > 0 && dayProducts.map(([day]) => (
               <div key={day}>
-                <button className={`labels__filter${activeButton === day ? " active" : ""}`} onClick={()=> handleFilterDay(day)}>
+                <button className={`labels__filter${activeButton === day ? " is-active" : ""}`} onClick={()=> handleFilterDay(day)}>
                   {day} 
                 </button>
               </div>
@@ -98,7 +78,7 @@ function Filter(props) {
               {isOpen && <div className="productos__filter__tags">
                 {dataProducts.length > 0 && dataProducts.map(([tag, count]) => (
                   <div key={tag}>
-                    <button className={`labels__filter${activeButton === tag ? " active" : ""}`}onClick={() => handleFilterClick(tag)}>
+                    <button className={`labels__filter${activeButton === tag ? " is-active" : ""}`}onClick={() => handleFilterTag(tag)}>
                       {tag} 
                     </button>
                   </div>

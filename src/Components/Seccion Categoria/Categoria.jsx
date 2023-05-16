@@ -5,18 +5,19 @@ import CardProducto from "../CardProducto";
 import ModalProduct from "../ModalProduct";
 import GestorContext from "../../context/GestorContext";
 import TuneOutlinedIcon from '@mui/icons-material/TuneOutlined';
+import FilterContext from "../../context/FilterContext";
 
 function Categoria() {
   const [showModal, setShowModal] = useState(false);
   const [showFilter, setShowFilter] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [currentPage, setCurrentPage] = useState(0);
   const [search, setSearch] = useState("");
-  const [filteredData, setFilteredData] = useState([]);
-  const [filterActive, setFilterActive] = useState(false);
 
   const data = useContext(GestorContext)
   const {maindb} = data
+
+  const {filteredData, setFilteredData, handleFilterClick, currentPage, setCurrentPage} = useContext(FilterContext)
+
 
   useEffect(() => {
     function handleResize() {
@@ -69,48 +70,6 @@ function Categoria() {
   const onSearchChange = ({ target }) => {
     setCurrentPage(0);
     setSearch(target.value);
-  };
-
-  const handleFilterClick = (label, day) => {
-
-    if(label === false && day === false){
-      setFilteredData(maindb);
-      setFilterActive(false);
-      setCurrentPage(0);
-    }
-   
-    if(label){
-      if (filterActive && label === null) {
-        // Si se desactiva el filtro, se muestra todos los productos
-        setFilteredData(maindb);
-        setFilterActive(false);
-
-      } else if (label !== null) {
-        // Si se selecciona una etiqueta, se filtran los productos por la etiqueta
-        const filtered = maindb.filter((product) => product.etiqueta.includes(label));
-        setFilteredData(filtered);
-        setFilterActive(true);
-      }
-      setCurrentPage(0);
-    }
-
-    if(day){
-
-      if (filterActive && day === null) {
-        // Si se desactiva el filtro, se muestra todos los productos
-        setFilteredData(maindb);
-        setFilterActive(false);
-      } else if (day !== null) {
-        // Si se selecciona una etiqueta, se filtran los productos por la etiqueta
-        const filtered = maindb.filter((product) => product.day.includes(day));
-        setFilteredData(filtered);
-        setFilterActive(true);
-      }
-      setCurrentPage(0);
-
-    }
-
-    console.log(label, day)
   };
 
   return (
