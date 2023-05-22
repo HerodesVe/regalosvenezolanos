@@ -10,13 +10,13 @@ const FilterProvider = ({children}) => {
   const [activeButton, setActiveButton] = useState(null);
 
   const data = useContext(GestorContext)
-  const {maindb} = data
+  const { maindb } = data
 
   
-  const handleFilterClick = (label, day) => {
+  const handleFilterClick = (label, dia) => {
 
-    if(label === false && day === false){
-      setFilteredData(maindb);
+    if(label === false && dia === false){
+      setFilteredData( maindb );
       setFilterActive(false);
       setCurrentPage(0);
     }
@@ -36,15 +36,15 @@ const FilterProvider = ({children}) => {
       setCurrentPage(0);
     }
 
-    if(day){
+    if( dia ){
 
-      if (filterActive && day === false) {
+      if (filterActive && dia === false) {
         // Si se desactiva el filtro, se muestra todos los productos
         setFilteredData(maindb);
         setFilterActive(false);
       } else if (day !== false) {
         // Si se selecciona una etiqueta, se filtran los productos por la etiqueta
-        const filtered = maindb.filter((product) => product.day.includes(day));
+        const filtered = maindb.filter((product) => product.day.includes(dia));
         setFilteredData(filtered);
         setFilterActive(true);
       }
@@ -70,8 +70,8 @@ const FilterProvider = ({children}) => {
       handleFilterClick(false, false); // Pasa null y false al componente padre
       setActiveButton(null);
     } else {
-      handleFilterClick(false, day); // Pasa la etiqueta y true al componente padre
-      setActiveButton(day);
+      handleFilterClick(false, dia); // Pasa la etiqueta y true al componente padre
+      setActiveButton(dia);
     }
   }
 

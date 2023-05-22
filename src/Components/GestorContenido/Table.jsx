@@ -24,13 +24,13 @@ function ProductTable({openModal, search, valueSearch, openModalAdd}) {
       return db.slice(currentPage, currentPage + pages);
     }
 
-    if (valueSearch === "id") {
-      const filtered = db.filter(product => product.id.toString().startsWith(search));
+    if (valueSearch === "id_interno") {
+      const filtered = db.filter(product => product.id_interno.toString().startsWith( search ));
       return filtered.slice(currentPage, currentPage + pages);
     }
 
-    if(valueSearch === "name" || valueSearch === "etiqueta"){
-      const filtered = db.filter(product => product[valueSearch].includes(search))
+    if(valueSearch === "nombre" || valueSearch === "etiqueta"){
+      const filtered = db.filter(product => product[valueSearch].includes( search ))
       return filtered.slice(currentPage, currentPage + pages)
     }
 
@@ -68,7 +68,7 @@ function ProductTable({openModal, search, valueSearch, openModalAdd}) {
           </tr>
         </thead>
         <tbody>
-          {db.length > 0 ? filteredProducs().map((product,index) => <TableRow openModalAdd={openModalAdd} openModal={openModal} key={index} product={product}/>) : "Error 504: Error del servidor al cargar los productos" }
+          {db.length > 0 && filteredProducs().map(( product,index ) => <TableRow openModalAdd={openModalAdd} openModal={openModal} key={index} product={product}/>)}
         </tbody>
       </table >
       </div>

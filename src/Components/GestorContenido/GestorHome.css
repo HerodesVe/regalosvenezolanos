@@ -200,7 +200,20 @@ form input{
   align-items: center;
   height: 300px;
   width: 100%;
-  background-color: #c0a65a;
+  background-color: #c4c2bf;
+  cursor: pointer;
+  color: black;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.img-preview{
+  width: 80%;
+  height: auto;
+}
+
+.drop-Active{
+  background-color: #fdfdfa;;
 }
 
 .load__image__gestor__form{
@@ -231,5 +244,9 @@ form input{
 
 .title__info__gestor{
   margin-bottom: 0.5rem;
+}
+
+.input-oculto{
+  display: none;
 }
 

@@ -22,6 +22,7 @@ function Filter(props) {
 
   useEffect(() =>{
           let data = db
+
           const productsByTag = data.reduce((acc, product) => {
             const tag = product.etiqueta;
             if (acc[tag]) {
@@ -32,14 +33,14 @@ function Filter(props) {
             return acc;
           }, {});
 
-          setDataProducts(Object.entries(productsByTag));
+          setDataProducts( Object.entries( productsByTag ) );
 
           const productsByDay = data.reduce((acc, product) => {
-            const day = product.day;
-            if (acc[day]) {
-              acc[day]++;
+            const dia = product.dia;
+            if (acc[dia]) {
+              acc[dia]++;
             } else {
-              acc[day] = 1;
+              acc[dia] = 1;
             }
             return acc;
           }, {});
@@ -60,25 +61,25 @@ function Filter(props) {
         <div className="filtered__categorias">
           <div className="festividad">
             <h3 className="title__filter__category"><TodayIcon className="festy"/> Festividad</h3>
-            {dayProducts.length > 0 && dayProducts.map(([day]) => (
-              <div key={day}>
-                <button className={`labels__filter${activeButton === day ? " is-active" : ""}`} onClick={()=> handleFilterDay(day)}>
-                  {day} 
+            {dayProducts.length > 0 && dayProducts.map(([dia]) => (
+              <div key={dia}>
+                <button className={`labels__filter${activeButton === dia ? " is-active" : ""}`} onClick={()=> handleFilterDay(day)}>
+                  {dia} 
                 </button>
               </div>
             ))}
           </div>
 
             <div className="todos__los__productos">
-                <h3 className="title__filter__category all-products" onClick={handleOpen}> <KeyboardArrowDownIcon
+                <h3 className="title__filter__category all-products" onClick={ handleOpen }> <KeyboardArrowDownIcon
                 className={`arrow__products ${isOpen ? "isOpen rotate" : ""}`}
                 sx={{ fontSize: 30 }}
                 /> Todos los Productos</h3>
 
               {isOpen && <div className="productos__filter__tags">
                 {dataProducts.length > 0 && dataProducts.map(([tag, count]) => (
-                  <div key={tag}>
-                    <button className={`labels__filter${activeButton === tag ? " is-active" : ""}`}onClick={() => handleFilterTag(tag)}>
+                  <div key={ tag }>
+                    <button className={`labels__filter${activeButton === tag ? " is-active" : ""}`}onClick={() => handleFilterTag( tag )}>
                       {tag} 
                     </button>
                   </div>

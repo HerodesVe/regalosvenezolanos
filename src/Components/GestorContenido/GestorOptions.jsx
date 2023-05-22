@@ -4,14 +4,14 @@ import GestorContext from '../../context/GestorContext';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
 function GestorOptions({openModal, setSearch, setValueSearch, valueSearch, openModalAdd}) {
-  const data = useContext(GestorContext)
+  const data = useContext( GestorContext )
 
-  const handleSearch = ({target}) => {
-    setSearch(target.value)
+  const handleSearch = ({ target }) => {
+    setSearch( target.value )
   }
 
-  const handleValueSearch = ({target}) => {
-    setValueSearch(target.value)
+  const handleValueSearch = ({ target }) => {
+    setValueSearch( target.value )
   }
 
   
@@ -24,9 +24,9 @@ function GestorOptions({openModal, setSearch, setValueSearch, valueSearch, openM
     
       <div className="inputs__gestor__options">
         <input onChange={handleSearch} className='search__gestor__options' type="text" placeholder={`Buscar por ${valueSearch.toUpperCase()}`} name="search-gestor" />
-        <select className='select__gestor__options' name="" onChange={handleValueSearch}>
-          <option value="id">ID</option>
-          <option value="name">Nombre</option>
+        <select className='select__gestor__options' name="" onChange={ handleValueSearch }>
+          <option value="id_interno">ID</option>
+          <option value="nombre">Nombre</option>
           <option value="etiqueta">Etiqueta</option>
         </select>
       </div>

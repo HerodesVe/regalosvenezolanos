@@ -14,9 +14,9 @@ const CarritoProvider = ({children}) => {
 
     let totalPrice = 0
 
-    itemsCart.map( el =>{
+    itemsCart.map( el => {
 
-      totalPrice = totalPrice + Number(el.price)
+      totalPrice = totalPrice + Number(el.precio)
     })
 
     setTotal(totalPrice)
@@ -30,7 +30,7 @@ const CarritoProvider = ({children}) => {
       .get(url)
         .then(res =>{
           const priceDolar = res.sources.BCV.quote
-          const numberDolar = Number(priceDolar).toFixed(2)
+          const numberDolar = Number( priceDolar ).toFixed(2)
 
           setDolar(Number(numberDolar))
 
@@ -43,8 +43,8 @@ const CarritoProvider = ({children}) => {
 
   }
 
-  const deleteProduct = (id) => {
-    const index = itemsCart.findIndex(item => item.id === id);
+  const deleteProduct = (id_interno) => {
+    const index = itemsCart.findIndex(item => item.id_interno === id_interno);
     if (index !== -1) {
       itemsCart.splice(index, 1);
       setitemsCart([...itemsCart]);

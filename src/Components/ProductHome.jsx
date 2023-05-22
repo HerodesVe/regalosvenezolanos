@@ -11,15 +11,15 @@ const ProductHome = () => {
 
 
   const data = useContext(GestorContext)
-  const {dbTrends} = data
+  const { dbTrends } = data
 
   const filteredProducts = dbTrends.slice(0,6)
 
   useEffect(() =>{
-    setShowModal(filteredProducts)
+    setShowModal( filteredProducts )
   },[dbTrends])
 
-  const handleCardClick = (product) =>{
+  const handleCardClick = ( product ) =>{
     setSelectedProduct(product)
     setShowModal(true)
   } 
@@ -29,7 +29,7 @@ const ProductHome = () => {
     <div className="card__container__home">
       <h2 className="title__products__trends">Productos Destacados</h2>
       <div className="card__container__home2">
-        {filteredProducts.length > 0 ? filteredProducts.map((el) => <CardProducto handleCardClick={handleCardClick} key={el.id} el={el}/>) : <h2>Error al Cargar los productos</h2>}
+        {filteredProducts.length > 0 ? filteredProducts.map((el) => <CardProducto handleCardClick={handleCardClick} key={el.id_interno} el={el}/>) : <h2>Error al Cargar los productos</h2>}
       </div>
       {showModal && selectedProduct && (
         <ModalProduct

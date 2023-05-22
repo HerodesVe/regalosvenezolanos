@@ -14,7 +14,7 @@ const details = {
 const ModalProduct = ({ product, onClose }) => {
   const [isOpen, setIsOpen] = useState(true);
   const data = useContext(CarritoContext)
-  const {handleClickCarrito, dolar} = data
+  const { handleClickCarrito, dolar } = data
 
 
 
@@ -27,7 +27,7 @@ const ModalProduct = ({ product, onClose }) => {
     onClose();
   };
 
-  let { name, etiqueta, id, price } = product;
+  let { nombre, etiqueta, id_interno, precio } = product;
 
   return (
     <article className={`modal ${isOpen && `is-open`}`} onClick={closeModal}>
@@ -39,11 +39,11 @@ const ModalProduct = ({ product, onClose }) => {
 
 
           <div className="product__img">
-            <img src={productIMG} alt={name} />
+            <img src={productIMG} alt={nombre} />
           </div>
           <div className="description__product__modal">
             <div className="modal__product__title">
-              <h4>{name}</h4>
+              <h4>{nombre}</h4>
               <p className="modal__label">{etiqueta}</p>
             </div>
             <div className="description__modal__product">
@@ -79,8 +79,8 @@ const ModalProduct = ({ product, onClose }) => {
                 <button className="button__modal carrito" onClick={() => handleClickCarrito(product)}>Añadir al Carrito</button>
               </div>
               <div className="prices__container">
-                <p className="price__product__modal">{` US$ ${price}`}</p>
-                <p className="price__product__modal price-bolivar">{dolar && `Bs ${(price * dolar).toFixed(1)}`}</p>
+                <p className="price__product__modal">{` US$ ${precio}`}</p>
+                <p className="price__product__modal price-bolivar">{dolar && `Bs ${(precio * dolar).toFixed(1)}`}</p>
               </div>
             </div>
           </div>
