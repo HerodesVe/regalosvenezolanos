@@ -1,5 +1,4 @@
 import "./ModalProduct.css";
-import productIMG from "../assets/item-1.jpg";
 import { useContext, useState } from "react";
 import CarritoContext from "../context/CarritoContext";
 
@@ -27,7 +26,7 @@ const ModalProduct = ({ product, onClose }) => {
     onClose();
   };
 
-  let { nombre, etiqueta, id_interno, precio } = product;
+  let { nombre, etiqueta, id_interno, precio, img } = product;
 
   return (
     <article className={`modal ${isOpen && `is-open`}`} onClick={closeModal}>
@@ -39,7 +38,7 @@ const ModalProduct = ({ product, onClose }) => {
 
 
           <div className="product__img">
-            <img src={productIMG} alt={nombre} />
+            <img src={img} alt={nombre} />
           </div>
           <div className="description__product__modal">
             <div className="modal__product__title">

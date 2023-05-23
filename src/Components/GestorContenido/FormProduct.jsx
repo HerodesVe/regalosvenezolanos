@@ -19,18 +19,17 @@ function FormProduct() {
   const [drop, setDrop] = useState(false)
 
   const fileInputRef = useRef(null)
-
-
+  
   const data = useContext(GestorContext)
   const {createData, updateData, dataToEdit, setDataToEdit} = data
 
   useEffect(() =>{
 
     if(dataToEdit !== null){
-        setForm(dataToEdit)
+      setForm(dataToEdit)
+      setImagePreview(dataToEdit.img)
     } else {
-        setForm(initialForm)
-        
+      setForm(initialForm)
     }
 }, [dataToEdit])
 
@@ -95,7 +94,12 @@ function FormProduct() {
   };
 
   const handleClickIMG = () => {
-   fileInputRef.current.click()
+    if( !imagePreview ){
+      return fileInputRef.current.click()
+    }
+
+    setImagePreview(null)
+
   }
 
   const dragIMG = (e) => {
@@ -115,11 +119,12 @@ function FormProduct() {
   };
 
 
+
   return (
     <form className="form__product__gestor" onSubmit={handleSubmit}>
 
       <div className="load__image__gestor__form">
-      <div className={`${'push__image__form__gestor'} ${drop ? `drop-Active` : ``}`} onClick={handleClickIMG} onDragOver={ (e) => dragIMG(e)} onDragLeave={(e) => dragLeaveIMG(e)} onDrop={ (e) => dropIMG(e)}>
+        <div className={`${'push__image__form__gestor'} ${drop ? `drop-Active` : ``}`} onClick={handleClickIMG} onDragOver={ (e) => dragIMG(e)} onDragLeave={(e) => dragLeaveIMG(e)} onDrop={ (e) => dropIMG(e)}>
           {imagePreview ? (
             <img src={imagePreview} className="img-preview" alt="Preview" />
           ) : (
@@ -128,6 +133,7 @@ function FormProduct() {
               <input type="file"className="input-oculto" name="img" ref={fileInputRef} onChange={(e) => handleIMG(e)} />
             </div>
           )}
+          {imagePreview && <p>Pulsa click para eliminar la foto</p>}
         </div>
       </div>
 

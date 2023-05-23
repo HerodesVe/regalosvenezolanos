@@ -69,13 +69,11 @@
   font-size: 1.2rem;
 }
 
-
-
   @media screen and (max-width: 1440px){
   
   .product__card {
     min-width: 15rem;
-    max-width: 25rem; /* establecer un ancho máximo para evitar que se vuelva demasiado grande en pantallas grandes */
+    max-width: 23rem; /* establecer un ancho máximo para evitar que se vuelva demasiado grande en pantallas grandes */
     height: auto;
   }
 

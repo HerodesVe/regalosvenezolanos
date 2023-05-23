@@ -1,13 +1,12 @@
 import React from "react";
 import "./CardProducto.css";
-import imgRoute from "../assets/item-1.jpg";
 
 const CardProducto = ({ el, handleCardClick }) => {
-  const { nombre, etiqueta, id_interno, precio } = el;
+  const { nombre, etiqueta, id_interno, precio, img } = el;
 
   return (
     <div key={id_interno} className="product__card" onClick={() => handleCardClick(el)}>
-      <img src={imgRoute} alt={nombre} />
+      <img src={img} alt={nombre} />
       <div className="info__card">
         <h3 className="card__title">{nombre}</h3>
         <p className="description__card">
