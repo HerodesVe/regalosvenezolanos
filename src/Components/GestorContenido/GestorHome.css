@@ -22,6 +22,7 @@ table,th,td{
   border-collapse: collapse;
   font-family: var(--font);
   font-size: 1.2rem;
+  min-width: 140px;
 }
 
 th, td{
@@ -137,11 +138,9 @@ th{
   margin: 0 0.2rem;
 }
 
-
 .edit{
   background-color: rgb(102, 176, 236);
 }
-
 
 .view{
   background-color: #fad76f;
@@ -164,8 +163,6 @@ thead {
   width: 100%;
   height: auto;
 }
-
-
 
 /* FORM */
 
@@ -196,6 +193,7 @@ form input{
 
 .push__image__form__gestor{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 300px;
@@ -208,7 +206,7 @@ form input{
 }
 
 .img-preview{
-  width: 80%;
+  width: 65%;
   height: auto;
 }
 
@@ -249,4 +247,6 @@ form input{
 .input-oculto{
   display: none;
 }
+
+
 

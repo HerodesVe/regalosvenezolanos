@@ -1,10 +1,9 @@
 import { useContext } from "react";
 import CarritoContext from "../context/CarritoContext";
-import img from "../assets/item-1.jpg"
 import CloseIcon from '@mui/icons-material/Close';
 
 function CarritoCard({ data }) {
-  const { nombre, id_interno, precio } = data
+  const { nombre, id_interno, precio, img } = data
   const { dolar } = useContext(CarritoContext)
 
   let newPrice = Number( precio )

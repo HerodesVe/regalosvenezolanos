@@ -1,18 +1,14 @@
 import { createContext, useState, useEffect } from "react";
 import { helpHttp } from "../helpers/helpHttp";
-
 const GestorContext = createContext()
-
 
 const GestorProvider = ({children}) => {
     const [db, setDb] = useState([])
     const [dbTrends, setDbTrends] = useState([]);
     const [maindb, setMaindb] = useState([]); //Almacena tanto la base de datos de todos los productos, y la de trends
 
-
     const [dbIDTrends, setDbIDTrends] = useState([]); //base de datos de los ID
     const [dataTrends, setDataTrends] = useState(null);
-
 
     const [dataToEdit, setDataToEdit] = useState(null)
     const [error, setError] = useState(null)
@@ -24,41 +20,41 @@ const GestorProvider = ({children}) => {
     const urlIMG = "http://localhost:8080/api/uploads/productos"
 
     useEffect(() => {
-        setLoading(true);
+      setLoading(true);
 
-        helpHttp()
-          .get(urlTrends)
-          .then((res) => {
-            if (!res.err) {
-              setDbIDTrends(res);
-              setError(null);
+      helpHttp()
+        .get(urlTrends)
+        .then((res) => {
+          if (!res.err) {
+            setDbIDTrends(res);
+            setError(null);
 
-            } else {
-              setDbIDTrends(null);
-              setError(res);
-            }
-            setLoading(false);
-          });
+          } else {
+            setDbIDTrends(null);
+            setError(res);
+          }
+          setLoading(false);
+        });
 
 
     }, [urlTrends]); //ACTUALIZA dbIDTrends
 
     useEffect(() => {
-        setLoading(true);
-        helpHttp()
-          .get(url)
-          .then((res) => {
-            if (!res.err) {
+      setLoading(true);
+      helpHttp()
+        .get(url)
+        .then((res) => {
+          if (!res.err) {
 
-              setDb(res);
-              setError(null);
+            setDb(res);
+            setError(null);
 
-            } else {
-              setDb(null);
-              setError(res);
-            }
-            setLoading(false);
-          });
+          } else {
+            setDb(null);
+            setError(res);
+          }
+          setLoading(false);
+        });
     }, [url]);
 
     useEffect(() => {
@@ -93,146 +89,140 @@ const GestorProvider = ({children}) => {
      
     }, [dataTrends])
   
-
-
     const getDataToEdit = () => {
       return dataToEdit;
     };
 
-    const addData = (data) =>{
+    const addData = ( data ) =>{
+      const provisional = {
+        id_interno: data.id_interno
+      }
+      
+      let options = {
+        body: provisional, 
+        headers: {"content-type": "application/json"}
+      }
 
-        const provisional = {
-            id_interno: data.id_interno
-        }
-       
-        let options = {
-            body: provisional, 
-            headers: {"content-type": "application/json"}
-        }
-
-        helpHttp().post(urlTrends,options).then((res) =>{
-            if (!res.err){
-                setDbIDTrends([...dbIDTrends, res])
-                setDataTrends(null)
-            }else{
-                setError(res)
-            }
-        }
+      helpHttp().post(urlTrends,options).then((res) =>{
+        if (!res.err){
+          setDbIDTrends( [...dbIDTrends, res] )
+          setDataTrends( null )
+          }else{
+            setError(res)
+          }
+      }
     )
     }
     
     const deleteDataTrends = (_id) =>{
-        let isDelete = window.confirm(`Estás seguro que quieres eliminar el registro con el id ${id}?`)
+        let isDelete = window.confirm(`Estás seguro que quieres eliminar el registro con el id ${_id}?`)
 
         if(isDelete){
-            let endpoint = `${urlTrends}/${_id}`
-            let options = {
-                headers: {"content-type": "application/json"}
-            }
-                api.del(endpoint,options).then((res) => {
-                if(!res.err){
-                    let newData = dbTrends.filter(el => el._id !== _id)
-                    setDbTrends(newData)
-                } else{
-                    setError(res)
-                }
+          let endpoint = `${urlTrends}/${_id}`
+          let options = {
+              headers: {"content-type": "application/json"}
+          }
+              api.del(endpoint,options).then((res) => {
+              if(!res.err){
+                  let newData = dbTrends.filter(el => el._id !== _id)
+                  setDbTrends(newData)
+              } else{
+                  setError(res)
+              }
             })
-            }else{
-                return;
-            }
+        }else{
+          return;
+        }
     }
 
 
     const createData = ( data ) =>{
-
         //Recoge la data del Form y la agrega a nuestra base de datos
         data.id_interno = Date.now()
-
         const { imagen, ...restData } = data;
-        
-
         // Cuerpo y cabecera para la peticion POST
         let options = {
-            body: restData, 
-            headers: {"content-type": "application/json"}
+          body: restData, 
+          headers: {"content-type": "application/json"}
         }
-
         // PETICION POST
         api.post(url,options).then((res) =>{
-
-            if (!res.err){
-                setDb([...db, res])
-
-                let linkIMG = `${urlIMG}/${data.id_interno}`;
-                const formData = new FormData();
-                formData.append('archivo', imagen);
-
-                fetch(linkIMG, {
-                  method: 'PUT',
-                  body: formData,
-                })
-                .then(response => {
-                  console.log(response)
-                })
-                .catch(error => {
-                  console.log(error)
-                });
-            }else{
-                setError(res)
-            }
+          if (!res.err){
+            setDb([...db, res])
+            imgUpload(imagen, data.id_interno)
+          }else{
+            setError(res)
+          }
         })   
 
     }
 
+    const imgUpload = (imagen, id_interno) => {
 
-    const updateData =  (data ) => {
-        let endpoint = `${url}/${data._id}`
+      let linkIMG = `${urlIMG}/${id_interno}`;
 
-        let options = {
-            body:data, 
-            headers: {"content-type": "application/json"}
+      const formData = new FormData();
+      formData.append('archivo', imagen);
+
+      fetch(linkIMG, {
+        method: 'PUT',
+        body: formData,
+      })
+      .catch(error => {
+        setError(error)
+      });
+
+    } 
+
+    const updateData =  (data) => {
+      let endpoint = `${url}/${data._id}`
+
+      let options = {
+          body:data, 
+          headers: {"content-type": "application/json"}
+      }
+
+      imgUpload(data.imagen, data.id_interno)
+      
+      api.put(endpoint,options).then((res) => {
+        if(!res.err){
+          let newData = db.map(el => el._id === data._id ? data : el)
+          setDb(newData)
+        }else{
+          setError(res)
         }
-        api.put(endpoint,options).then((res) => {
-            if(!res.err){
-                let newData = db.map(el => el._id === data._id ? data : el)
-                setDb(newData)
-            }else{
-                setError(res)
-            }
-        })
-
+      })
     }
 
     const deleteData = (_id) =>{
-        let isDelete = window.confirm(`Estás seguro que quieres eliminar el registro con el id ${_id}?`)
+      let isDelete = window.confirm(`Estás seguro que quieres eliminar el registro con el id ${_id}?`)
 
-        if(isDelete){
-            let endpoint = `${url}/${_id}`
-            let options = {
-                headers: {"content-type": "application/json"}
-            }
-        
-                api.del(endpoint,options).then((res) => {
-                if(!res.err){
-                    let newData = db.filter(el => el._id !== _id)
-                    setDb(newData)
-                } else{
-                    setError(res)
-                }
-            })
-            }else{
-                return;
-            }
+      if(isDelete){
+        let endpoint = `${url}/${_id}`
+        let options = {
+            headers: {"content-type": "application/json"}
+          }
+      
+        api.del(endpoint,options).then((res) => {
+        if(!res.err){
+          let newData = db.filter(el => el._id !== _id)
+          setDb(newData)
+        } else{
+          setError(res)
         }
-
+          })
+          }else{
+            return;
+          }
+      }
 
     const data = {createData, updateData, deleteData, db, setDataToEdit, error, loading, getDataToEdit, dataToEdit, dbTrends, setDataTrends, dataTrends, deleteDataTrends, maindb}
 
     return(
-        <GestorContext.Provider value={data}>
-            {children}
-        </GestorContext.Provider>
-    )
+      <GestorContext.Provider value={data}>
+        {children}
+      </GestorContext.Provider>
+  )
 
 }
 

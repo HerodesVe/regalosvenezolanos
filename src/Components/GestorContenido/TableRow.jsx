@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import GestorContext from '../../context/GestorContext';
 
 
-function TableRow({product, openModal, openModalAdd}) {
+function TableRow( { product, openModal, openModalAdd } ) {
 
   const {nombre, id_interno, etiqueta, precio , dia, _id} = product
 

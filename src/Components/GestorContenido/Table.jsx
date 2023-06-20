@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import TableRow from "./TableRow";
 import GestorContext from "../../context/GestorContext";
 
-function ProductTable({openModal, search, valueSearch, openModalAdd}) {
+function ProductTable( { openModal, search, valueSearch, openModalAdd } ) {
   const data = useContext(GestorContext)
 
   const { db } = data

@@ -37,13 +37,14 @@ const CarritoProvider = ({children}) => {
         })
   },[url])
 
-  const handleClickCarrito = (product) => {
+  const handleClickCarrito = ( product ) => {
 
     setitemsCart([...itemsCart, product]);
 
   }
 
-  const deleteProduct = (id_interno) => {
+  const deleteProduct = ( id_interno ) => {
+    
     const index = itemsCart.findIndex(item => item.id_interno === id_interno);
     if (index !== -1) {
       itemsCart.splice(index, 1);

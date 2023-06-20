@@ -4,7 +4,6 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Home from "./Components/Home"
 import Footer from './Components/Footer';
 import { CarritoProvider } from './context/CarritoContext';
-import ContactoHome from './Components/ContactoHome';
 import Categoria from './Components/Seccion Categoria/Categoria';
 import GestorHome from './Components/GestorContenido/GestorHome';
 import { GestorProvider } from './context/GestorContext';

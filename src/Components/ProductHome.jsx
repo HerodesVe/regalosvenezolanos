@@ -33,8 +33,8 @@ const ProductHome = () => {
       </div>
       {showModal && selectedProduct && (
         <ModalProduct
-          product={selectedProduct}
-          onClose={() => {
+          product={ selectedProduct }
+          onClose={ () => {
             setSelectedProduct(null)
             setShowModal(false)
           }}
